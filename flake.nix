@@ -33,6 +33,16 @@
 					./server.nix
 				];
 			};
+
+			nixos-amd64-mainline-esr-live = inputs.nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				modules = [
+					({ pkgs, modulesPath, ... }: {
+						imports = [ (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix") ];
+					})
+					./desktop.nix
+				];
+			};
 		};
 	};
 }

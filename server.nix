@@ -20,15 +20,17 @@
 	# Facoltativi
 	environment.systemPackages = with pkgs; [ 
 	# server VNC
-	turbovnc
-	w3m vim mc wget stdenv gcc gdb gnumake binutils pkg-config automake autoconf git ];
+	# turbovnc
+	w3m vim mc wget stdenv gcc gdb gnumake binutils pkg-config automake autoconf git htop btop ];
 
 	# Abilita tutta questa merda per un'esperienza desktop remota
 	# Utilizzo turboVNC perché caricabile e configurabile dall'utente anche
 	# con tunnel SSH
 	services.xserver.enable = false;
 	services.xserver.displayManager.startx.enable = false;
-	services.xserver.desktopManager.xfce.enable = true;
+	services.xserver.desktopManager.xfce.enable = false;
+	# Come prima
+	fonts.fontconfig.enable = false;
 
 	# Open ports in the firewall.
 	# networking.firewall.allowedTCPPorts = [ ... ];
